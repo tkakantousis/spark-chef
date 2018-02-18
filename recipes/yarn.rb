@@ -8,6 +8,20 @@
 home = node['hops']['hdfs']['user_home']
 private_ip=my_private_ip()
 
+
+#
+# local directory logs
+#
+directory node['hadoop_spark']['local']['dir'] do
+  owner node['hadoop_spark']['user']
+  group node['hops']['group']
+  mode "770"
+  action :create
+  recursive true
+  not_if { File.directory?("#{node['hadoop_spark']['local']['dir']}") }
+end
+
+
 # Only the first NN needs to create the directories
 if private_ip.eql? node['hadoop_spark']['yarn']['private_ips'][0]
 
@@ -58,7 +72,7 @@ if private_ip.eql? node['hadoop_spark']['yarn']['private_ips'][0]
                 zip -o #{node['hadoop_spark']['yarn']['archive']} *
 		cd ..
                 mv jars/#{node['hadoop_spark']['yarn']['archive']} .
-                mkdir #{node['hadoop_spark']['home']}/logs
+                mkdir -p #{node['hadoop_spark']['home']}/logs
                 touch #{spark_packaged}
                 cd ..
                 chown -R #{node['hadoop_spark']['user']}:#{node['hadoop_spark']['group']} #{node['hadoop_spark']['home']}
