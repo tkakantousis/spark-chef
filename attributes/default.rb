@@ -54,14 +54,14 @@ default['hadoop_spark']['yarn']['py4j_archive_hdfs']               =  "/user/#{n
 default['hadoop_spark']['yarn']['python_tensorflow_archive_hdfs']  =  "/user/#{node['hadoop_spark']['user']}/#{node['hadoop_spark']['yarn']['python_tensorflow_archive']}"
 default['hadoop_spark']['yarn']['tfspark_archive_hdfs']            =  "/user/#{node['hadoop_spark']['user']}/#{node['hadoop_spark']['yarn']['tfspark_archive']}"
 # Use comma to separate multiple archives, and use # to create the symlink on YARN runtime working directory.
-default['hadoop_spark']['yarn']['dist']['archives']                   = ""
-default['hadoop_spark']['yarn']['dist']['files']                      = ""
-#default.hadoop_spark.yarn.dist.jars                      = ""
-default['hadoop_spark']['pyFiles']                                = "local://#{node['hadoop_spark']['base_dir']}/python/lib/pyspark.zip"
-default['hadoop_spark']['yarn']['jars']                           = "local://#{node['hadoop_spark']['base_dir']}/jars/*"
-default['hadoop_spark']['yarn']['am']['memory']                   = "512m"
-default['hadoop_spark']['yarn']['containerLauncherMaxThreads']    = 25
-default['hadoop_spark']['yarn']['private_ips']                    = []
+default['hadoop_spark']['yarn']['dist']['archives']                = ""
+default['hadoop_spark']['yarn']['dist']['files']                   = ""
+#default.hadoop_spark.yarn.dist.jars                                = ""
+default['hadoop_spark']['pyFiles']                                 = "local://#{node['hadoop_spark']['base_dir']}/python/lib/pyspark.zip"
+default['hadoop_spark']['yarn']['jars']                            = "local://#{node['hadoop_spark']['base_dir']}/jars/*"
+default['hadoop_spark']['yarn']['am']['memory']                    = "512m"
+default['hadoop_spark']['yarn']['containerLauncherMaxThreads']     = 25
+default['hadoop_spark']['yarn']['private_ips']                     = []
 #default.spark.yarn.am.waitTime                           = "100s"
 #default.spark.yarn.max.executor.failures                 = 3
 #default.spark.yarn.historyServer.address
@@ -69,12 +69,12 @@ default['hadoop_spark']['yarn']['am']['attemptFailuresValidityInterval'] = "1h"
 
 # Hash of environment variables
 default['hadoop_spark']['yarn']['appMasterEnv']                    = {}
-default['hadoop_spark']['systemd']                              = "true"
+default['hadoop_spark']['systemd']                                 = "true"
 
 
-default['hadoop_spark']['history']['fs']['cleaner']['enabled']           = "true"
-default['hadoop_spark']['history']['fs']['cleaner']['interval']          = "1d"
-default['hadoop_spark']['history']['fs']['cleaner']['maxAge']            = "7d"
+default['hadoop_spark']['history']['fs']['cleaner']['enabled']     = "true"
+default['hadoop_spark']['history']['fs']['cleaner']['interval']    = "1d"
+default['hadoop_spark']['history']['fs']['cleaner']['maxAge']      = "7d"
 
 #
 # Parameters taken from here: http://www.slideshare.net/jcmia1/apache-spark-20-tuning-guide
@@ -86,11 +86,11 @@ default['hadoop_spark']['daemon']['memory']                        = "4g"
 default['hadoop_spark']['sql']['broadcastTimeout']                 = "1200"
 default['hadoop_spark']['sql']['networkTimeout']                   = "700"
 
-default['hadoop_spark']['ciphers'] 							  = "TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256,TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256,TLS_RSA_WITH_AES_128_CBC_SHA256,TLS_ECDH_ECDSA_WITH_AES_128_CBC_SHA256,TLS_ECDH_RSA_WITH_AES_128_CBC_SHA256,TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA,TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA,TLS_RSA_WITH_AES_128_CBC_SHA,TLS_ECDH_ECDSA_WITH_AES_128_CBC_SHA,TLS_ECDH_RSA_WITH_AES_128_CBC_SHA,TLS_ECDHE_ECDSA_WITH_3DES_EDE_CBC_SHA,TLS_ECDHE_RSA_WITH_3DES_EDE_CBC_SHA,TLS_ECDH_ECDSA_WITH_3DES_EDE_CBC_SHA,TLS_ECDH_RSA_WITH_3DES_EDE_CBC_SHA"
-default['hadoop_spark']['ssl_enabled']          				  = "true"
-default['hadoop_spark']['ssl']['protocol'] 						  = "TLSv1,TLSv1.1,TLSv1.2"
-default['hadoop_spark']['ssl']['keystorepassword']				  = "#{node['hopsworks']['master']['password']}"
-default['hadoop_spark']['ssl']['truststorepassword']				  = "#{node['hopsworks']['master']['password']}"
+default['hadoop_spark']['ciphers'] 				   = "TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256,TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256,TLS_RSA_WITH_AES_128_CBC_SHA256,TLS_ECDH_ECDSA_WITH_AES_128_CBC_SHA256,TLS_ECDH_RSA_WITH_AES_128_CBC_SHA256,TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA,TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA,TLS_RSA_WITH_AES_128_CBC_SHA,TLS_ECDH_ECDSA_WITH_AES_128_CBC_SHA,TLS_ECDH_RSA_WITH_AES_128_CBC_SHA,TLS_ECDHE_ECDSA_WITH_3DES_EDE_CBC_SHA,TLS_ECDHE_RSA_WITH_3DES_EDE_CBC_SHA,TLS_ECDH_ECDSA_WITH_3DES_EDE_CBC_SHA,TLS_ECDH_RSA_WITH_3DES_EDE_CBC_SHA"
+default['hadoop_spark']['ssl_enabled']          		   = "true"
+default['hadoop_spark']['ssl']['protocol'] 			   = "TLSv1,TLSv1.1,TLSv1.2"
+default['hadoop_spark']['ssl']['keystorepassword']		   = "#{node['hopsworks']['master']['password']}"
+default['hadoop_spark']['ssl']['truststorepassword']		   = "#{node['hopsworks']['master']['password']}"
 
-default['hopsmonitor']['default']['private_ips']                                  = ['10.0.2.15']
-default['hopslog']['default']['private_ips']                                      = ['10.0.2.15']
+default['hopsmonitor']['default']['private_ips']                   = ['10.0.2.15']
+default['hopslog']['default']['private_ips']                       = ['10.0.2.15']
